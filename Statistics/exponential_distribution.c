@@ -71,8 +71,20 @@ void test2(){
   }
 }
 
+void test3(){
+  int i, count = 20;
+  double lambda = 1.0 / 1.5;
+  unsigned long long seed = 10000;
+  init_genrand64(seed);
+  printf("%10s %10s %10s\n","Unitform():", "lambda:", "rand_exp():");
+  for (i = 0; i < count; i++) {
+    printf("%10f %10f %10f\n", Uniform(), lambda, rand_exp(lambda));
+  }
+}
+
 int main(int argc, char const *argv[]) {
-  test();
+  // test();
   // test2();
+  test3();
   return 0;
 }
