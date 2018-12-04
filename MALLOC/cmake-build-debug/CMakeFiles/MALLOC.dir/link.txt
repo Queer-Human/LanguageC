@@ -1,0 +1,1 @@
+/bin/cc -g   CMakeFiles/MALLOC.dir/main.c.o  -o MALLOC 

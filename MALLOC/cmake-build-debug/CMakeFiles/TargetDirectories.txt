@@ -1,0 +1,3 @@
+/home/m5211129/GitRepository/LanguageC/MALLOC/cmake-build-debug/CMakeFiles/edit_cache.dir
+/home/m5211129/GitRepository/LanguageC/MALLOC/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/home/m5211129/GitRepository/LanguageC/MALLOC/cmake-build-debug/CMakeFiles/MALLOC.dir

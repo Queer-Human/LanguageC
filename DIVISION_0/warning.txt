@@ -1,0 +1,5 @@
+$ gcc main.c -o MAIN
+main.c: 関数 ‘test’ 内:
+main.c:4:17: 警告: ゼロ除算が発生しました [-Wdiv-by-zero]
+ printf("%d", 10 % 0);
+                 ^
