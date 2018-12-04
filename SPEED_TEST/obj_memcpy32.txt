@@ -1,0 +1,68 @@
+
+memcpy.o:	file format Mach-O 64-bit x86-64
+
+Disassembly of section __TEXT,__text:
+_simulation:
+; void simulation(){
+       0:	55 	pushq	%rbp
+       1:	48 89 e5 	movq	%rsp, %rbp
+       4:	48 81 ec 00 01 00 00 	subq	$256, %rsp
+; printf("Start\n");
+       b:	48 8d 3d 00 00 00 00 	leaq	(%rip), %rdi
+      12:	e8 00 00 00 00 	callq	0 <_simulation+0x17>
+; memcpy(array_to,array_from,sizeof(int)* N);
+      17:	48 8b 85 00 ff ff ff 	movq	-256(%rbp), %rax
+      1e:	48 89 45 80 	movq	%rax, -128(%rbp)
+      22:	48 8b 85 08 ff ff ff 	movq	-248(%rbp), %rax
+      29:	48 89 45 88 	movq	%rax, -120(%rbp)
+      2d:	48 8b 85 10 ff ff ff 	movq	-240(%rbp), %rax
+      34:	48 89 45 90 	movq	%rax, -112(%rbp)
+      38:	48 8b 85 18 ff ff ff 	movq	-232(%rbp), %rax
+      3f:	48 89 45 98 	movq	%rax, -104(%rbp)
+      43:	48 8b 85 20 ff ff ff 	movq	-224(%rbp), %rax
+      4a:	48 89 45 a0 	movq	%rax, -96(%rbp)
+      4e:	48 8b 85 28 ff ff ff 	movq	-216(%rbp), %rax
+      55:	48 89 45 a8 	movq	%rax, -88(%rbp)
+      59:	48 8b 85 30 ff ff ff 	movq	-208(%rbp), %rax
+      60:	48 89 45 b0 	movq	%rax, -80(%rbp)
+      64:	48 8b 85 38 ff ff ff 	movq	-200(%rbp), %rax
+      6b:	48 89 45 b8 	movq	%rax, -72(%rbp)
+      6f:	48 8b 85 40 ff ff ff 	movq	-192(%rbp), %rax
+      76:	48 89 45 c0 	movq	%rax, -64(%rbp)
+      7a:	48 8b 85 48 ff ff ff 	movq	-184(%rbp), %rax
+      81:	48 89 45 c8 	movq	%rax, -56(%rbp)
+      85:	48 8b 85 50 ff ff ff 	movq	-176(%rbp), %rax
+      8c:	48 89 45 d0 	movq	%rax, -48(%rbp)
+      90:	48 8b 85 58 ff ff ff 	movq	-168(%rbp), %rax
+      97:	48 89 45 d8 	movq	%rax, -40(%rbp)
+      9b:	48 8b 85 60 ff ff ff 	movq	-160(%rbp), %rax
+      a2:	48 89 45 e0 	movq	%rax, -32(%rbp)
+      a6:	48 8b 85 68 ff ff ff 	movq	-152(%rbp), %rax
+      ad:	48 89 45 e8 	movq	%rax, -24(%rbp)
+      b1:	48 8b 85 70 ff ff ff 	movq	-144(%rbp), %rax
+      b8:	48 89 45 f0 	movq	%rax, -16(%rbp)
+      bc:	48 8b 85 78 ff ff ff 	movq	-136(%rbp), %rax
+      c3:	48 89 45 f8 	movq	%rax, -8(%rbp)
+; printf("END\n");
+      c7:	48 8d 3d 00 00 00 00 	leaq	(%rip), %rdi
+      ce:	e8 00 00 00 00 	callq	0 <_simulation+0xd3>
+; }
+      d3:	90 	nop
+      d4:	c9 	leave
+      d5:	c3 	retq
+
+_main:
+; int main(int argc, char const *argv[]) {
+      d6:	55 	pushq	%rbp
+      d7:	48 89 e5 	movq	%rsp, %rbp
+      da:	48 83 ec 10 	subq	$16, %rsp
+      de:	89 7d fc 	movl	%edi, -4(%rbp)
+      e1:	48 89 75 f0 	movq	%rsi, -16(%rbp)
+; simulation();
+      e5:	b8 00 00 00 00 	movl	$0, %eax
+      ea:	e8 00 00 00 00 	callq	0 <_main+0x19>
+; return 0;
+      ef:	b8 00 00 00 00 	movl	$0, %eax
+; }
+      f4:	c9 	leave
+      f5:	c3 	retq

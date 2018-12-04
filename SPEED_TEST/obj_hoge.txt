@@ -1,0 +1,36 @@
+
+hoge.o:	file format Mach-O 64-bit x86-64
+
+Disassembly of section __TEXT,__text:
+_simulation:
+; void simulation(){
+       0:	55 	pushq	%rbp
+       1:	48 89 e5 	movq	%rsp, %rbp
+; printf("Start\n");
+       4:	48 8d 3d 00 00 00 00 	leaq	(%rip), %rdi
+       b:	e8 00 00 00 00 	callq	0 <_simulation+0x10>
+; getchar();
+      10:	e8 00 00 00 00 	callq	0 <_simulation+0x15>
+; printf("END\n");
+      15:	48 8d 3d 00 00 00 00 	leaq	(%rip), %rdi
+      1c:	e8 00 00 00 00 	callq	0 <_simulation+0x21>
+; }
+      21:	90 	nop
+      22:	5d 	popq	%rbp
+      23:	c3 	retq
+
+_main:
+; int main(int argc, char const *argv[]) {
+      24:	55 	pushq	%rbp
+      25:	48 89 e5 	movq	%rsp, %rbp
+      28:	48 83 ec 10 	subq	$16, %rsp
+      2c:	89 7d fc 	movl	%edi, -4(%rbp)
+      2f:	48 89 75 f0 	movq	%rsi, -16(%rbp)
+; simulation();
+      33:	b8 00 00 00 00 	movl	$0, %eax
+      38:	e8 00 00 00 00 	callq	0 <_main+0x19>
+; return 0;
+      3d:	b8 00 00 00 00 	movl	$0, %eax
+; }
+      42:	c9 	leave
+      43:	c3 	retq

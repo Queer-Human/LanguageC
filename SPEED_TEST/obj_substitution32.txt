@@ -1,0 +1,49 @@
+
+substitution.o:	file format Mach-O 64-bit x86-64
+
+Disassembly of section __TEXT,__text:
+_simulation:
+; void simulation(){
+       0:	55 	pushq	%rbp
+       1:	48 89 e5 	movq	%rsp, %rbp
+       4:	48 81 ec 10 01 00 00 	subq	$272, %rsp
+; printf("Start\n");
+       b:	48 8d 3d 00 00 00 00 	leaq	(%rip), %rdi
+      12:	e8 00 00 00 00 	callq	0 <_simulation+0x17>
+; for (i = 0; i < N; i++) {
+      17:	c7 45 fc 00 00 00 00 	movl	$0, -4(%rbp)
+      1e:	eb 1c 	jmp	28 <_simulation+0x3c>
+; array_to[i] = array_from[i];
+      20:	8b 45 fc 	movl	-4(%rbp), %eax
+      23:	48 98 	cltq
+      25:	8b 94 85 f0 fe ff ff 	movl	-272(%rbp,%rax,4), %edx
+      2c:	8b 45 fc 	movl	-4(%rbp), %eax
+      2f:	48 98 	cltq
+      31:	89 94 85 70 ff ff ff 	movl	%edx, -144(%rbp,%rax,4)
+; for (i = 0; i < N; i++) {
+      38:	83 45 fc 01 	addl	$1, -4(%rbp)
+      3c:	83 7d fc 1f 	cmpl	$31, -4(%rbp)
+      40:	7e de 	jle	-34 <_simulation+0x20>
+; printf("END\n");
+      42:	48 8d 3d 00 00 00 00 	leaq	(%rip), %rdi
+      49:	e8 00 00 00 00 	callq	0 <_simulation+0x4e>
+; }
+      4e:	90 	nop
+      4f:	c9 	leave
+      50:	c3 	retq
+
+_main:
+; int main(int argc, char const *argv[]) {
+      51:	55 	pushq	%rbp
+      52:	48 89 e5 	movq	%rsp, %rbp
+      55:	48 83 ec 10 	subq	$16, %rsp
+      59:	89 7d fc 	movl	%edi, -4(%rbp)
+      5c:	48 89 75 f0 	movq	%rsi, -16(%rbp)
+; simulation();
+      60:	b8 00 00 00 00 	movl	$0, %eax
+      65:	e8 00 00 00 00 	callq	0 <_main+0x19>
+; return 0;
+      6a:	b8 00 00 00 00 	movl	$0, %eax
+; }
+      6f:	c9 	leave
+      70:	c3 	retq
