@@ -1,0 +1,5 @@
+all:
+	clang++ -o Bilinear bilinear.cpp `pkg-config --cflags opencv` `pkg-config --libs opencv`
+
+clean:
+		rm Bilinear ./OUTPUT/*
