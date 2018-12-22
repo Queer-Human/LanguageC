@@ -30,6 +30,6 @@ void test_random(){
 
 int main(int argc, char const *argv[]) {
   test_rand();
-  // test_random();
+  test_random();
   return 0;
 }
